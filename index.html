@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"> <!--C'est pour inclure des caractère qui normalement ne serait pas prise en compte-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Ca jsp-->
+    <title>E-Commerce - Votre boutique en ligne</title> 
+    <link rel="stylesheet" href="css/style.css"> <!--c'est pour relier le fichier CSS-->
+</head>
+<body>
+    <header>
+        <nav class="container"> <!--C'est pour definir des liens de navigations, le 'class="container"', c'est pour le CSS-->
+            <a href="index.html" class="nav-logo">E-Commerce</a>
+            <ul class="nav-links"> <!--Ca defini une liste non-ordonnée et definis une classe pour le CSS-->
+                <li><a href="index.html">Accueil</a></li> <!--Pour acceder aux differentes pages -->
+                <li><a href="pages/categories/electronics.html">Électronique</a></li> <!--Le '<li>', c'est pour définir une liste-->
+                <li><a href="pages/categories/fashion.html">Mode</a></li>
+                <li><a href="pages/categories/home.html">Maison</a></li>
+                <li><a href="pages/categories/sports.html">Sport</a></li>
+                <li><a href="pages/support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section Catégories -->
+        <section class="categories-section"> <!--Balise sémantique : section thematique de contenu-->
+            <div class="container"> <!--Balise génerique : grouper et mise en page CSS-->
+                <h2>Nos Catégories</h2>
+                <div class="categories-grid">
+                    <a href="pages/categories/electronics.html" class="category-card">
+                        <img src="assets/images/electronics-category.jpg" alt="Électronique" class="category-image"> <!--Sert a fournir un texte alternative à l'image-->
+                        <h3>Électronique</h3>
+                    </a>
+                    <a href="pages/categories/fashion.html" class="category-card">
+                        <img src="assets/images/fashion-category.jpg" alt="Mode" class="category-image">
+                        <h3>Mode</h3>
+                    </a>
+                    <a href="pages/categories/home.html" class="category-card">
+                        <img src="assets/images/home-category.jpg" alt="Maison" class="category-image">
+                        <h3>Maison</h3>
+                    </a>
+                    <a href="pages/categories/sports.html" class="category-card">
+                        <img src="assets/images/sports-category.jpg" alt="Sport" class="category-image">
+                        <h3>Sport</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produits mis en avant -->
+        <section class="featured-products">
+            <div class="container">
+                <h2>Produits Populaires</h2>
+                <div class="products-grid">
+                    <a href="pages/products/smartphone.html" class="product-card">
+                        <img src="assets/images/smartphone.jpg" alt="Smartphone" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">Smartphone XYZ</h3>
+                            <p class="product-price">599 €</p>
+                        </div>
+                    </a>
+                    <a href="pages/products/laptop.html" class="product-card">
+                        <img src="assets/images/laptop_dessous.jpg" alt="Ordinateur portable" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">Ordinateur Portable Pro</h3>
+                            <p class="product-price">999 €</p>
+                        </div>
+                    </a>
+                    <a href="pages/products/sneakers.html" class="product-card">
+                        <img src="assets/images/chaussures-running-cote.avif" alt="Baskets" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">Baskets Sport</h3>
+                            <p class="product-price">89 €</p>
+                        </div>
+                    </a>
+                    <a href="pages/products/dress.html" class="product-card">
+                        <img src="assets/images/dress_cote.jpg" alt="Robe élégante" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-title">Robe élégante</h3>
+                            <p class="product-price">129 €</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div >
+                <div >
+                    <h3>À propos</h3>
+                    <p>E-Commerce est votre destination shopping en ligne pour tous vos besoins.</p>
+                </div>
+                <div >
+                    <h3>Contact</h3>
+                    <p>Email: contact@eshop.com</p>
+                    <p>Tél: 01 02 03 04 05</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

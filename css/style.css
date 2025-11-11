@@ -1,0 +1,250 @@
+/* Reset CSS Universal selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.recommended-products{
+    display: none;
+}
+
+/* Variables globales */
+:root { /*definis des var qui seront réutiliser plus tard dans le code en bas*/
+    --primary-color: #2196F3;
+    --secondary-color: #FFC107;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --dark-gray: #333;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+/* Style de base - type selector */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6; /*Permet de faire un peu 'd'espace' aux extremiité*/
+    color: var(--text-color);
+}
+
+.container {
+    max-width: var(--max-width); /*Pour que le container ne soit pas trop 'élargi', du moins quand on est en plein écran*/
+    margin: auto;
+    padding: 0 20px; /*'padding' c est pour mettre de l'espace entre la bordure et le contenu interieur, et le 1er : '0', c'est pour l'espace vertical, tandis que le 2ieme, c'est pour l'espace horizontal*/
+}
+
+/* Header et Navigation */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /*'box-shadox', c'est pour ajouter une ombre, le '0', c'est le décalage vers les x, le '2px' : c'est pour le décalage vers les y, le '5px' : c'est pour cmb l'ombre sera diffuse, en gros plus ca s'éloigne : plus ca devient transparent.*/
+    position: sticky; /*Permet à l'entete de rester présente pendant le scroll*/
+    top: 0; /*N'a d'effet que quand une position est défini, et a cmb il reste du haut*/
+    z-index: 1000; /*Fonctionne uniquement si l'élement est fixé. C'est pour définir si un élement en au-dessus des autres, et il a une valeur = 1000, qui est très haute, donc le place au-dessus des autres*/
+}
+
+nav {
+    display: flex; /*Les élements enfants seront facilement répartis, l'espace sera mieux répartis entre les élements enfants*/
+    justify-content: space-between; /*Permet de espacer entre les élements, les elements aux extremité resteront aux extrémité*/
+    align-items: center; /*Permet de aligner les élements enfants aux centres*/
+    padding: 1rem 0; /*1 rem = 16px, valeur relatif,plus facile à manier, le 'padding' ici n'est pas appliquer car il y a une classe '.nav-logo' est prioritaire, et son 'padding' a lui est appliqué prioritairement*/
+}
+
+.nav-logo {
+    font-size: 1.5rem; /*'font-size' definis la taille du texte, ici c'est la taille de la classe : '.nav-logo', l'unité 'rem' est relatif à la taille de base définis sur 'HTML'*/
+    font-weight: bold; /*Definir l'epaisseur du texte*/
+    color: var(--primary-color);
+    text-decoration: none; /*C'est pour enlever le soulignage car c'est un lien*/
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem; /*crée un espace uniforme entre les éléments enfants du conteneur*/
+    list-style: none; /*C est pour retirer les puces de la liste*/
+}
+
+.nav-links a {
+    text-decoration: none; /*Pour retirer le soulignage des liens*/
+    color: var(--text-color); /*Définis la couleur du link*/
+    transition: color 0.3s ease; /*C'est pour définir la transitions sur la 'couleur' sur une durée 0.3 s et ca le fait doucement 'ease'*/
+}
+
+.nav-links a:hover { /*le ':hoover' c'est pour quand la souris elle passe par dessus*/
+    color: var(--primary-color); /*tu definis ta nvlle couleur*/
+}
+
+/* Section Catégories */
+.categories-section {
+    padding: 4rem 0; 
+    background-color: var(--light-gray);
+}
+
+.categories-grid {
+    display: grid; /*Permet de structurer les élement enfants de manière structuré en forme de tableau*/
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*'grid-template-columns' sert à créer des colonnes dans le 'grid', le 'repeat()' sert à repeter une definition de colonne avec comme argument : 'repeat(nombre, définition)', le 'auto-fit', c'est pour creer le nb de colonne en fonction de l'espace disponible sur l'écran. le 'minmax()' c'est pour définir la largeur min et max de chaque colonne. '1fr' c'est pour signifier : 1 fraction, si tu continus à ajouter d'autre frac, par exemple, à la suite tu rajoute 2fr, la colonne sera diviser en 3 fraction avec une division en 1/3 (pour le 1er) et 2/3 (pour le deuxieme)*/
+    gap: 2rem; 
+    padding: 2rem 0;
+}
+
+.category-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden; /*Cas de figure ou le contenu dépasse la taille du conteneur, avec 'overflow: auto' permet de ajouter une petite barre défilante pour voir le contenu sans que ca dépasse sur ceux sur le coté*/
+    transition: transform 0.3s ease; /*Cette fois la 'transition' est sur le caracteristique 'transform' avant c'etait sur la couleur*/
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /*Quand la souris elle passe au dessus, ca 'transform' en le déplacant selon l axe y*/
+}
+
+/* Grille de produits */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 8px; /*arrondi les bordures*/
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(14, 158, 38, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%; /*Prends la taille du conteneur parents et comme c'est 100%, ca prends toute la place disponible sur le conteneur parent*/
+    height: 200px;
+    object-fit: contain; /*L’image est redimensionnée pour couvrir entièrement le conteneur, tout en gardant son ratio (proportions)*/
+}
+
+.category-image {
+    width: 100%; /*Prends la taille du conteneur parents et comme c'est 100%, ca prends toute la place disponible sur le conteneur parent*/
+    height: 200px;
+    object-fit: cover; /*L’image est redimensionnée pour couvrir entièrement le conteneur, tout en gardant son ratio (proportions)*/
+}
+
+
+.product-info {
+    padding: 1rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem; /*Sépare avec l'élements en dessous*/
+}
+
+.product-price {
+    color: var(--primary-color); 
+    font-weight: bold;
+}
+
+/* Page Produit */
+.product-details {
+    padding: 2rem 0;
+}
+
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.product-description {
+    margin: 2rem 0;
+}
+
+.product-specs {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.buy-box {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Formulaire de contact */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block; /*l'élement est sous forme de nloc*/
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /*Quand la souris */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: color-mix(in srgb, var(--primary-color) 80%, black); /*Assombri le bouton quand on passe dessus, le 'couleur-mix(in srgb)', c'est pour mélanger 2 couleurs*/
+}
+
+/* Footer */
+footer {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
+
+
+
+/* Media Queries pour le Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .categories-grid,
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .product-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .categories-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
